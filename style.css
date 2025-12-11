@@ -12,17 +12,31 @@ body {
 
 .keypad {
   display: flex;
-  width: 50vmin;
-  height: 50vmin;
+  width: 75vmin;
+  height: 75vmin;
+}
+
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.controlpad {
+  flex: 1;
+  display: flex;
+}
+
+.controlpad button {
+  flex: 1 1 calc(100% / 2);
 }
 
 .numpad {
-  flex: auto;
+  flex: 4;
   display: flex;
   flex-wrap: wrap;
 }
 
 .numpad button {
-  height: calc(100% / 4);
-  width: calc(100% / 3);
+  flex: 1 1 calc(100% / 3);
 }

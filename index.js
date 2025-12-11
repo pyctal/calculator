@@ -5,7 +5,7 @@ const resultDisplay = document.querySelector(".result");
 
 let firstNum = "";
 let secondNum = "";
-let operator;
+let operator = "";
 
 function add(a, b) {
   return a + b;
@@ -48,4 +48,15 @@ function updateExpression() {
 
 function updateResult() {
   resultDisplay.textContent = operate();
+}
+
+function backspace() {
+  if (secondNum !== "") {
+    secondNum = secondNum.slice(0, -1);
+  } else if (operator !== "") {
+    operator = "";
+  } else {
+    firstNum = firstNum.slice(0, -1);
+  }
+  updateExpression();
 }

@@ -1,9 +1,16 @@
+/* =========================================
+   GLOBAL RESETS & DEFAULTS
+   ========================================= */
 * {
   padding: 0;
   margin: 0;
   font-size: 16px;
 }
 
+/* =========================================
+   PAGE LAYOUT
+   ========================================= */
+/* Flex container to center the calculator on the screen */
 body {
   display: flex;
   justify-content: center;
@@ -11,11 +18,23 @@ body {
   height: 100vh;
 }
 
+/* =========================================
+   MAIN CALCULATOR CONTAINER
+   ========================================= */
+/* Main wrapper using vmin to ensure the calculator 
+  stays rectangle and fits on both mobile and desktop screens 
+*/
 .keypad {
   display: flex;
   width: 75vmin;
   height: 75vmin;
 }
+
+/* =========================================
+   LEFT SECTION (Controls & Numbers)
+   ========================================= */
+/* Holds the Control Pad (top) and Numpad (bottom).
+  Takes up 3 parts of the width vs. Operator Pad's 1 part. */
 
 .left-section {
   flex: 3;
@@ -23,25 +42,32 @@ body {
   flex-direction: column;
 }
 
+/* --- Control Pad (AC, Backspace) --- */
 .controlpad {
-  flex: 1;
+  flex: 1; /* Takes 1/5 of the vertical space */
   display: flex;
 }
 
 .controlpad button {
-  flex: 1;
+  flex: 1; /* Buttons share width equally */
 }
 
+/* --- Number Pad (0-9, .) --- */
 .numpad {
-  flex: 4;
+  flex: 4; /* Takes 4/5 of the vertical space */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allows buttons to form a grid */
 }
 
 .numpad button {
+  /* Calculates exactly 1/3rd of the width for a 3-column grid. */
   flex: 1 1 calc(100% / 3);
 }
 
+/* =========================================
+   RIGHT SECTION (Operators)
+   ========================================= */
+/* Vertical column for mathematical operators */
 .operatorpad {
   flex: 1;
   display: flex;
@@ -49,5 +75,5 @@ body {
 }
 
 .operatorpad button {
-  flex: 1;
+  flex: 1; /* Buttons share height equally */
 }

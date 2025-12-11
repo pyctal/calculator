@@ -1,6 +1,11 @@
 "use strict";
 
-let firstNumber, secondNumber, operator;
+const expressionDisplay = document.querySelector(".expression");
+const resultDisplay = document.querySelector(".result");
+
+let firstNum = "";
+let secondNum = "";
+let operator;
 
 function add(a, b) {
   return a + b;
@@ -18,21 +23,29 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(operator, a, b) {
+function operate() {
   let result;
   switch (operator) {
     case "+":
-      result = add(a, b);
+      result = add(firstNum, secondNum);
       break;
     case "-":
-      result = subtract(a, b);
+      result = subtract(firstNum, secondNum);
       break;
     case "*":
-      result = multiply(a, b);
+      result = multiply(firstNum, secondNum);
       break;
     case "/":
-      result = divide(a, b);
+      result = divide(firstNum, secondNum);
       break;
   }
   return result;
+}
+
+function updateExpression() {
+  expressionDisplay.textContent = `${firstNum} ${operator} ${secondNum}`;
+}
+
+function updateResult() {
+  resultDisplay.textContent = operate();
 }

@@ -1,15 +1,13 @@
-/* =========================================
-   GLOBAL RESETS & DEFAULTS
-   ========================================= */
+/* Global styles */
+
 * {
   padding: 0;
   margin: 0;
   font-size: 16px;
 }
 
-/* =========================================
-   PAGE LAYOUT
-   ========================================= */
+/* Page layout styles */
+
 /* Flex container to center the calculator on the screen */
 body {
   display: flex;
@@ -18,9 +16,8 @@ body {
   height: 100vh;
 }
 
-/* =========================================
-   MAIN CALCULATOR CONTAINER
-   ========================================= */
+/* Calculator styles */
+
 /* Main wrapper using vmin to ensure the calculator 
   stays rectangle and fits on both mobile and desktop screens 
 */
@@ -30,12 +27,8 @@ body {
   height: 75vmin;
 }
 
-/* =========================================
-   LEFT SECTION (Controls & Numbers)
-   ========================================= */
 /* Holds the Control Pad (top) and Numpad (bottom).
   Takes up 3 parts of the width vs. Operator Pad's 1 part. */
-
 .left-section {
   flex: 3;
   display: flex;
@@ -64,9 +57,6 @@ body {
   flex: 1 1 calc(100% / 3);
 }
 
-/* =========================================
-   RIGHT SECTION (Operators)
-   ========================================= */
 /* Vertical column for mathematical operators */
 .operatorpad {
   flex: 1;

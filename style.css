@@ -8,7 +8,7 @@
 
 /* Page layout styles */
 
-/* Flex container to center the calculator on the screen */
+/* Flex body to center the calculator on the screen */
 body {
   display: flex;
   justify-content: center;
@@ -21,10 +21,31 @@ body {
 /* Main wrapper using vmin to ensure the calculator 
   stays rectangle and fits on both mobile and desktop screens 
 */
-.keypad {
+.calculator {
   display: flex;
+  flex-direction: column;
   width: 75vmin;
   height: 75vmin;
+}
+
+/* --- Display container --- */
+/* The display takes up 2/7ths of the total height */
+.display {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.expression,
+.result {
+  flex: 1;
+}
+
+/* --- Keypad container --- */
+/* The keypad takes up 5/7ths of the total height */
+.keypad {
+  flex: 5;
+  display: flex;
 }
 
 /* Holds the Control Pad (top) and Numpad (bottom).
@@ -42,7 +63,7 @@ body {
 }
 
 .controlpad button {
-  flex: 1; /* Buttons share width equally */
+  flex: 1;
 }
 
 /* --- Number Pad (0-9, .) --- */
@@ -65,5 +86,5 @@ body {
 }
 
 .operatorpad button {
-  flex: 1; /* Buttons share height equally */
+  flex: 1;
 }

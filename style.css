@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.keypad {
+  display: flex;
+  width: 50vmin;
+  height: 50vmin;
+}
+
+.numpad {
+  flex: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.numpad button {
+  height: calc(100% / 4);
+  width: calc(100% / 3);
+}

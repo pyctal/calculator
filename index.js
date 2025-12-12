@@ -40,14 +40,7 @@ function operate() {
       result = divide(firstNum, secondNum);
       break;
   }
-}
-
-function updateNumbers(digit) {
-  if (isFirstNum) {
-    firstNum += digit;
-  } else {
-    secondNum += digit;
-  }
+  updateResultDisplay();
 }
 
 function updateExpressionDisplay() {
@@ -58,6 +51,23 @@ function updateResultDisplay() {
   resultDisplay.textContent = result;
 }
 
+function updateNumbers(digit) {
+  if (isFirstNum) {
+    firstNum += digit;
+  } else {
+    secondNum += digit;
+  }
+  updateExpressionDisplay();
+}
+
+function updateOperator(op) {
+  if (firstNum !== "") {
+    operator = op;
+    isFirstNum = false;
+    updateExpressionDisplay();
+  }
+}
+
 function backspace() {
   if (secondNum !== "") {
     secondNum = secondNum.slice(0, -1);
@@ -66,43 +76,23 @@ function backspace() {
   } else {
     firstNum = firstNum.slice(0, -1);
   }
-  updateExpression();
+  updateExpressionDisplay();
 }
 
 function handleNumPress(event) {
-  switch (event.target.id) {
-    case "0":
-      updateExpression("0");
-      break;
-    case "1":
-      updateExpression("1");
-      break;
-    case "2":
-      updateExpression("2");
-      break;
-    case "3":
-      updateExpression("3");
-      break;
-    case "4":
-      updateExpression("4");
-      break;
-    case "5":
-      updateExpression("5");
-      break;
-    case "6":
-      updateExpression("6");
-      break;
-    case "7":
-      updateExpression("7");
-      break;
-    case "8":
-      updateExpression("8");
-      break;
-    case "9":
-      updateExpression("9");
-      break;
-    case ".":
-      updateExpression(".");
-      break;
+  const key = event.target.id;
+  if (key === "+-") {
+    // toggleSign(); TODO: Implement this
+  } else {
+    updateNumbers(key);
+  }
+}
+
+function handleOperatorPress(event) {
+  const key = event.target.id;
+  if (key === "=") {
+    operate();
+  } else {
+    updateOperator(key);
   }
 }
